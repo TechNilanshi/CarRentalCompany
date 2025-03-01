@@ -18,12 +18,9 @@ import javax.inject.Inject
 class SpeedLimitViewModel @Inject constructor(
     private val speedLimitUseCase: SpeedLimitUseCase,
     private val repository: CustomerSpeedRepository
-
 ) : ViewModel() {
-
     private val _speedCheckResult = MutableLiveData<String>()
     val speedCheckResult: LiveData<String> = _speedCheckResult
-
     var maxSpeed by mutableStateOf(100f)
 
     // here we will check the Speed and get the value in UI

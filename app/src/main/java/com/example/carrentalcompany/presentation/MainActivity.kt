@@ -1,5 +1,6 @@
 package com.example.carrentalcompany.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -24,9 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   // Greeting("Android")
-
-                    val viewModel: SpeedLimitViewModel = hiltViewModel()
+                      val viewModel: SpeedLimitViewModel = hiltViewModel()
                     SpeedLimitScreen(viewModel)
                 }
             }
@@ -36,8 +36,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun SpeedLimitScreen(viewModel: SpeedLimitViewModel) {
-
-
     val speedData = SpeedData(customerId = "customer1", currentSpeed = 130f)
     viewModel.checkSpeed(speedData)
 }

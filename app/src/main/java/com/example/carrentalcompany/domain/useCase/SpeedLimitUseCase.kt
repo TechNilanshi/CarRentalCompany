@@ -12,13 +12,10 @@ class SpeedLimitUseCase@Inject constructor(
         if (speedData.currentSpeed > maxSpeed) {
             /// here current speed can be set in "speedData.currentSpeed"
             val token  = "firebaseToken"
-
             val message = "Speed limit exceeded! Current speed: ${speedData.currentSpeed} km/h"
             speedLimitRepository.sendNotification(message,token)
         }
     }
 }
-
 /*
-val speedData = SpeedData(customerId = "customer1", currentSpeed = 130f)
 viewModel.checkSpeed(speedData)*/

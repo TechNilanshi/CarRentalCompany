@@ -12,7 +12,6 @@ class SpeedLimitRepositoryImpl @Inject constructor(
         "customer2" to 100f
     )
 
-
     override suspend fun getMaxSpeedForCustomer(customerId: String): Float {
             return customerSpeedLimits[customerId] ?: 100f
     }

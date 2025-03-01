@@ -12,19 +12,17 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
     @Provides
     fun provideFirebaseService(): FirebaseService {
         return FirebaseService() //here we will do Firebase setup
     }
-
     @Provides
     fun provideSpeedLimitRepository(firebaseService: FirebaseService): CustomerSpeedRepository {
         return SpeedLimitRepositoryImpl(firebaseService)
     }
-
     @Provides
     fun provideSpeedLimitUseCase(speedLimitRepository: CustomerSpeedRepository): SpeedLimitUseCase {
         return SpeedLimitUseCase(speedLimitRepository)
     }
-
 }
